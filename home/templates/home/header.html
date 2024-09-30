@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="header-logo">Prosto store</div>
+    <nav class="header-nav">
+        <ul>
+            <li class="{% if request.path == '/' %} active {% endif %}">
+                <a href="/">Главное</a>
+            </li>
+            <li class="{% if request.path == '/catalog' %} active {% endif %}">
+                <a href="/catalog">Каталог</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        {% if request.user.is_anonymous %}
+        <a href="/login">Войти</a>
+        <a href="/register">Рег.</a>
+        {% else %}
+        <a href="/logout">Выйти</a>
+        {% endif %}
+    </div>
+</header>
